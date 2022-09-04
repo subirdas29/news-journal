@@ -35,6 +35,8 @@ const singleCategory = (id) => {
 
 const showDetails = (data) => {
     const error = document.getElementById('error');
+    const Categorylength = document.getElementById('category-length');
+
     error.textContent = ''
 
     if (data == '') {
@@ -44,6 +46,10 @@ const showDetails = (data) => {
         detailsData.textContent = '';
     }
     else {
+
+        Categorylength.innerHTML = `
+        <p class="mx-auto my-5 p-5  text-black  bg-white"> ${data.length} Items fountd catagory items</p>
+        `
 
         const detailsData = document.getElementById('detailsData');
         detailsData.textContent = '';
