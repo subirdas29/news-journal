@@ -12,6 +12,7 @@ fetchData();
 
 
 // single navbar data
+
 const showCategory = (categories) => {
 
     const headers = document.getElementById('all-header');
@@ -43,6 +44,7 @@ const showDetails = (data) => {
         error.innerHTML = `
         <p class="mx-auto mt-20 text-center h-[60vh]"> Data not found</p>
         `
+        Categorylength.textContent = '';
         detailsData.textContent = '';
     }
     else {
