@@ -139,7 +139,6 @@ const newsModal = (details) => {
 </div>
 </div>
  `
-
 }
 
 
