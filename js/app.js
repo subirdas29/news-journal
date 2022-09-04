@@ -79,9 +79,71 @@ const showDetails = (data) => {
         </div>
 
 
+        <div>
+        <div class="rating rating">
+        <input type="radio" name="rating-9" class="rating-hidden" />
+        <input type="radio" name="rating-9" class="mask mask-star-2" />
+        <input type="radio" name="rating-9" class="mask mask-star-2" checked />
+        <input type="radio" name="rating-9" class="mask mask-star-2" />
+        </div>
+    </div>
+
+    <div>
+        <button for="my-modal-3"  class="text-white" onclick="news('${details._id}')"> 
+            <label for="my-modal-3" class="btn modal-button"> News   &#8594;</label>
+        </button>
+    </div>
+ 
+ </div>
+  
+  
+</div>
+    `;
+            detailsData.appendChild(div);
+        });
+
+    }
+
+}
+const news = (id) => {
+    const url = ` https://openapi.programming-hero.com/api/news/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => newsModal(data.data[0]))
+
+}
+const newsModal = (details) => {
+    // console.log(data[0])
+    const SingleModal = document.getElementById('SingleModal');
+
+    SingleModal.innerHTML = `
+ <div class="hero bg-base-200">
+ <div class="hero-content flex-col lg:flex-row">
+   <img src=${details.thumbnail_url}  class="max-w-sm rounded-lg shadow-2xl" />
+   <div>
+     <h1 class="text-xl font-bold">${details.title}</h1>
+     <p class="py-6">${details?.details.length > 450 ? details?.details.slice(0, 450) : details?.details} ...</p>
+     
+
+     <div class='flex justify-between'>
+ <div class="avatar">
+       <div class="w-8 rounded-full">
+         <img src=${details.author.img} alt="Tailwind-CSS-Avatar-component" />
+        </div>
+  </div>
+  <div class="">
+  <h3>${details.author.name}</h3>
+ <p class="">${details.author.published_date}</p>
+</div>
+
+</div>
+</div>
+ `
+
+}
 
 
-       
+
 
 
 
